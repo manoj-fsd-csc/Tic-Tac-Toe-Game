@@ -17,8 +17,7 @@ const winningCombinations = [
     [2, 4, 6],
 ];
 
-// Create the board
-function createBoard() {
+ function createBoard() {
     board.innerHTML = '';
     boardState.forEach((_, index) => {
         const cell = document.createElement('div');
@@ -28,8 +27,7 @@ function createBoard() {
     });
 }
 
-// Handle cell clicks
-function handleCellClick(event) {
+ function handleCellClick(event) {
     const cell = event.target;
     const index = cell.dataset.index;
 
@@ -55,8 +53,7 @@ function handleCellClick(event) {
     statusDiv.textContent = `Player ${currentPlayer}'s turn`;
 }
 
-// Check for a win
-function checkWin() {
+ function checkWin() {
     return winningCombinations.some(combination => {
         const [a, b, c] = combination;
         return (
@@ -67,8 +64,7 @@ function checkWin() {
     });
 }
 
-// Reset the game
-function resetGame() {
+ function resetGame() {
     currentPlayer = 'X';
     gameActive = true;
     boardState = Array(9).fill(null);
@@ -76,9 +72,7 @@ function resetGame() {
     createBoard();
 }
 
-// Event listeners
-board.addEventListener('click', handleCellClick);
+ board.addEventListener('click', handleCellClick);
 resetButton.addEventListener('click', resetGame);
 
-// Initialize the game
-createBoard();
+ createBoard();
